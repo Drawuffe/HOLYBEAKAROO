@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "PlayerMovement",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "4ccb282d-54fd-491e-b129-558895551200",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "afe311bf-9b30-4dae-823d-f0840a3abab1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "161c75a8-8a5e-4868-b607-132a790bdc96",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
