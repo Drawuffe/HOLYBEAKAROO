@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class playerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header ("Stats")]
     public float moveSpeed;
@@ -30,7 +30,7 @@ public class playerMovement : MonoBehaviour
     public float moveInput;
     public bool isGrounded;
     public bool isFacingRight = true;
-    public int facingDir = 1;
+    public int facingDir = 0;
 
     void Start()
     {
@@ -50,14 +50,16 @@ public class playerMovement : MonoBehaviour
 
         if (moveInput > 0.1f)
         {
-            facingDir = 1;
+            facingDir = 0;
         }
         else if (moveInput < -0.1f)
         {
-            facingDir = -1;
+            facingDir = -180;
         }
 
-        transform.localScale = new Vector3(facingDir, 1, 1);
+        //transform.localScale = new Vector3(facingDir, 1, 1);
+        Vector3 rotator = new Vector3(transform.rotation.x, facingDir, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(rotator);
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -95,7 +97,7 @@ public class playerMovement : MonoBehaviour
         isDashing = true;
         canDash = false;
 
-        Vector2 dashDirection = rb.linearVelocity.normalized;
+        //float dashDirection = facingDir;
         float dashSpeed = dashDistance / maxDashDuration;
 
         float startTime = Time.time;
@@ -103,10 +105,11 @@ public class playerMovement : MonoBehaviour
         while(Time.time < startTime + maxDashDuration)
         {
             //add dash trail vfx
-            rb.linearVelocity = new Vector2(dashSpeed, rb.linearVelocity.y);
+            //moves the player towards the right arrow/red arrow
+            rb.linearVelocity = new Vector2(dashSpeed, rb.linearVelocity.y) * transform.right;
             yield return null;
         }
-
+        
         isDashing = false;
         canDash = true;
     }
