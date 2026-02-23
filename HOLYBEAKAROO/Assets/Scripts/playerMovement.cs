@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header ("Stats")]
     public float moveSpeed;
+    public float currentSpeed;
+    public float floatSpeed;
     public float jumpHeight;
 
     [Header ("Gravity")]
@@ -20,12 +22,18 @@ public class PlayerMovement : MonoBehaviour
     public bool canDash = true;
     public bool isDashing = false;
 
+    [Header("Shoot/Aim")]
+    private Camera mainCam;
+    public GameObject reticle;
+    private Vector3 mousePos;
+    public float mouseRetSpeed;
+
     [Header("Grounding")]
     public LayerMask groundLayer;
     public Transform groundCheck;
 
+    [Header("Settings")]
     public PlayerInput playerInput;
-
     private Rigidbody2D rb;
     public float moveInput;
     public bool isGrounded;
@@ -37,11 +45,21 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         currentGravity = rb.gravityScale;
+        currentSpeed = moveSpeed;
+        //finding the main camera for the reticle to follow the mouse pos
+        Cursor.visible = false;
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        reticle.SetActive(false);
     }
 
     void Update()
     {
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        //moves the reticle along with the mousepos on every frame of update.
+        mousePos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        reticle.transform.position = Vector2.Lerp(transform.position, mousePos, mouseRetSpeed);
+        
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -76,11 +94,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = gravity;
             rb.linearDamping = 10;
+            moveSpeed = floatSpeed;
+            reticle.SetActive(true);
         }
         if (!Mouse.current.leftButton.IsPressed())
         {
             rb.gravityScale = currentGravity;
             rb.linearDamping = 0;
+            moveSpeed = currentSpeed;
+            reticle.SetActive(false);
         }
     }
 
