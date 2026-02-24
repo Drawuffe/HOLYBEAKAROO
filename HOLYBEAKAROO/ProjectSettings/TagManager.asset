@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - BeakCount
+  - InteractionText
+  - Beak
   layers:
   - Default
   - TransparentFX
