@@ -40,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight = true;
     public int facingDir = 0;
 
+    [Header("Collection")]
+    public GameObject beakObj;
+    public Shop shop;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         reticle.SetActive(false);
+        beakObj = GameObject.FindGameObjectWithTag("Beak").GetComponent<GameObject>();
     }
 
     void Update()
@@ -59,7 +64,9 @@ public class PlayerMovement : MonoBehaviour
         //moves the reticle along with the mousepos on every frame of update.
         mousePos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         reticle.transform.position = Vector2.Lerp(transform.position, mousePos, mouseRetSpeed);
-        
+
+      
+
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -143,6 +150,15 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             Debug.Log("isGrounded");
+        }
+
+        if (collision.gameObject.tag == ("Beak"))
+        {
+            //Debug.Log("Hit by player");           
+            shop.beaks++;
+            Debug.Log("#" + shop.beaks);
+            shop.BeakCounter();
+            Destroy(collision.gameObject);
         }
     }
 
