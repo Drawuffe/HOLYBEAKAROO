@@ -95,6 +95,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void DoubleJump(InputAction.CallbackContext context)
+    {
+        if (context.performed && !isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
+        }
+    }
+
     public void Aim(InputAction.CallbackContext context)
     {
         if (Mouse.current.leftButton.IsPressed() && !isGrounded)
@@ -104,12 +112,13 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = floatSpeed;
             reticle.SetActive(true);
         }
-        if (!Mouse.current.leftButton.IsPressed())
+        else if (!Mouse.current.leftButton.IsPressed())
         {
             rb.gravityScale = currentGravity;
             rb.linearDamping = 0;
             moveSpeed = currentSpeed;
             reticle.SetActive(false);
+            Debug.Log("turned off");
         }
     }
 

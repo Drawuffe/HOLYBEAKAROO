@@ -20,6 +20,6 @@ public class Drinks : MonoBehaviour
 
     public void DrinkCounter()
     {
-        GetComponent<TextMeshProUGUI>().text = "Beaks:" + drinkTotal;
+        GetComponent<TextMeshProUGUI>().text = "Drinks:" + drinkTotal;
     }
 }
