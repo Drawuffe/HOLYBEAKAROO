@@ -23,10 +23,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing = false;
 
     [Header("Shoot/Aim")]
-    private Camera mainCam;
     public GameObject reticle;
+    private Camera mainCam;
     private Vector3 mousePos;
     public float mouseRetSpeed;
+    public GameObject bulletPrefab;
+    public Transform bulletStart;
+    public int currentAmmo, maxAmmo = 7;
+    public AmmoCount ammoCount;
 
     [Header("Grounding")]
     public LayerMask groundLayer;
@@ -55,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         reticle.SetActive(false);
         beakObj = GameObject.FindGameObjectWithTag("Beak").GetComponent<GameObject>();
+
+        currentAmmo = maxAmmo;
     }
 
     void Update()
@@ -64,9 +70,6 @@ public class PlayerMovement : MonoBehaviour
         //moves the reticle along with the mousepos on every frame of update.
         mousePos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         reticle.transform.position = Vector2.Lerp(transform.position, mousePos, mouseRetSpeed);
-
-      
-
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -114,12 +117,30 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!Mouse.current.leftButton.IsPressed())
         {
+            //bulletShoot.Fire();
             rb.gravityScale = currentGravity;
             rb.linearDamping = 0;
             moveSpeed = currentSpeed;
             reticle.SetActive(false);
             Debug.Log("turned off");
         }
+    }
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        if (!Mouse.current.leftButton.IsPressed() && !isGrounded && currentAmmo > 0)
+        {
+            GameObject firedBullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.identity);
+            Debug.Log("fired");
+            currentAmmo--;
+            ammoCount.AmmoCounter();
+        }
+    }
+
+    public void Reload(InputAction.CallbackContext context)
+    {
+        int reloadAmt = maxAmmo - currentAmmo;
+        currentAmmo += reloadAmt;
     }
 
     public void Dash(InputAction.CallbackContext context)
