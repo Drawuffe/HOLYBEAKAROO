@@ -1,4 +1,80 @@
 ﻿title: Bar_Start
 ---
-This is an example of a Yarn Spinner script. Write your dialogue here!
+Emuly: Yoo-Hooo! Howdy There! You look brand new around these parts, yer not from around here, are you?
+  -> Pigeon: Came in on the last train
+     Emuly:  I had a feeling! Fancy a drink?    
+  
+     
+  ->Pigeon: I’ve lived here my whole life
+     Emuly:  Oh…well anyways, a drink for your troubles?
+
+Pigeon: Oh, I don’t got no beaks on me..
+
+Emuly: why did you come into a bar with no beaks-
+
+Emuly: That’s okay! This round’s on me, but I can’t spare much more
+
+Emuly: The way most people get their fix around here are these bounties, you get one of these and I can fix you up real nice
+
+Pigeon: I have to kill people for drinks?
+
+Emuly: Beaks grow back, are you in or not?
+ -> Pigeon: Why not   
+  <<jump VinnyEnter>>
+ -> Pigeon: Hell nah     
+ <<jump VinnyEnter>>
+
+===
+
+title:VinnyEnter
+position: 2,214
+---
+Vinny: WHERE THE HELL IS MY DRINK?
+
+Bartender: Here you are, V, That’ll be 15 beaks
+
+Vinny: You’re always ripping people off, just hand me the drink, I’m almost done with my bounty
+
+Bartender: You know how it is V, no beaks, no drink
+
+Vinny: You better be careful about who you’re talking to here, you know I can take you easier than my buddies outside
+
+Pidgeon: Why are ya yelling so damn loud…coming in here threatening people…
+
+Vinny: …
+
+Vinny: Who the hell are you?
+
+Pigeon: I’m Pigeon A. Holliday and I-
+
+Vinny: I didn’t actually care, why are you talking to me right now
+
+Pigeon: You’re threatening a lowly bartender right now, you’re out of line
+
+Bartender: lowly?
+
+Vinny: Oh thank goodness you were here then! I know exactly what you’re doing and you’re going to have to try harder than that.
+
+Pigeon: what
+
+Vinny: You think I’m so stupid, I can smell it on you
+
+Vinny: Meet me outside, I’ll show you what happens when people cross me.
+
+<<jump BountyIntro>>
+
+
+
+===
+title: BountyIntro
+position: -1,406
+---
+Emuly: You’re gonna need that drink.
+
+Emuly: Here’s Vinny’s Bounty, once you defeat him, come back here and I can help you out some more
+
+Pigeon: Fine, give me the drink.
+
+Emuly: See you later, Holliday!
+
 ===
