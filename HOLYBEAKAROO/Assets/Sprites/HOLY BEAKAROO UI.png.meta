@@ -1,0 +1,389 @@
+fileFormatVersion: 2
+guid: 481b201e87a5d3949a21553f234c2c7d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -282421072417449965
+    second: HOLY BEAKAROO UI_0
+  - first:
+      213: 3094630730383659784
+    second: HOLY BEAKAROO UI_1
+  - first:
+      213: -3517619783557218580
+    second: HOLY BEAKAROO UI_2
+  - first:
+      213: 5087645451366433780
+    second: HOLY BEAKAROO UI_3
+  - first:
+      213: -134414028859558105
+    second: HOLY BEAKAROO UI_4
+  - first:
+      213: 1688240270243704972
+    second: HOLY BEAKAROO UI_5
+  - first:
+      213: 5254166157238301979
+    second: HOLY BEAKAROO UI_6
+  - first:
+      213: 498339468124682538
+    second: HOLY BEAKAROO UI_7
+  - first:
+      213: 5047422090281559244
+    second: HOLY BEAKAROO UI_8
+  - first:
+      213: 357161425074371736
+    second: HOLY BEAKAROO UI_9
+  - first:
+      213: 4268466571519492730
+    second: HOLY BEAKAROO UI_10
+  - first:
+      213: -7991045049200799356
+    second: HOLY BEAKAROO UI_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_0
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 616
+        height: 1431
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 318197de783a41cf0800000000000000
+      internalID: -282421072417449965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_4
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 1030
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7273ff42727722ef0800000000000000
+      internalID: -134414028859558105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_5
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 889
+        width: 839
+        height: 539
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80b263c495dd6710800000000000000
+      internalID: 1688240270243704972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_6
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 880
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b157111484c8ae840800000000000000
+      internalID: 5254166157238301979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_7
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 206
+        width: 271
+        height: 785
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a29f02f1b157ae600800000000000000
+      internalID: 498339468124682538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_8
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 740
+        width: 9
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc421b216ab0c0640800000000000000
+      internalID: 5047422090281559244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_9
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 40
+        width: 684
+        height: 733
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89cb70d7c64e4f400800000000000000
+      internalID: 357161425074371736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_10
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 90
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a728c034bb3ac3b30800000000000000
+      internalID: 4268466571519492730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HOLY BEAKAROO UI_11
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 84
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4811e3abdda1a1190800000000000000
+      internalID: -7991045049200799356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 85aa175c194c18549b6f79d7d388853b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HOLY BEAKAROO UI_0: -282421072417449965
+      HOLY BEAKAROO UI_1: 3094630730383659784
+      HOLY BEAKAROO UI_10: 4268466571519492730
+      HOLY BEAKAROO UI_11: -7991045049200799356
+      HOLY BEAKAROO UI_2: -3517619783557218580
+      HOLY BEAKAROO UI_3: 5087645451366433780
+      HOLY BEAKAROO UI_4: -134414028859558105
+      HOLY BEAKAROO UI_5: 1688240270243704972
+      HOLY BEAKAROO UI_6: 5254166157238301979
+      HOLY BEAKAROO UI_7: 498339468124682538
+      HOLY BEAKAROO UI_8: 5047422090281559244
+      HOLY BEAKAROO UI_9: 357161425074371736
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
