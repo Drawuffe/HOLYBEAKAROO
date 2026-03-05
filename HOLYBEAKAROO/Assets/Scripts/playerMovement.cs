@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float currentSpeed;
     public float floatSpeed;
     public float jumpHeight;
+    private bool canDbJump;
 
     [Header ("Gravity")]
     public float currentGravity;
@@ -27,8 +28,13 @@ public class PlayerMovement : MonoBehaviour
     private Camera mainCam;
     private Vector3 mousePos;
     public float mouseRetSpeed;
+
     public GameObject bulletPrefab;
     public Transform bulletStart;
+    public GameObject bulletDestroyPrefab;
+
+    public bool canShoot;
+
     public int currentAmmo, maxAmmo = 7;
     public AmmoCount ammoCount;
 
@@ -95,20 +101,22 @@ public class PlayerMovement : MonoBehaviour
         if(context.performed && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
+            canShoot = true;
         }
     }
 
     public void DoubleJump(InputAction.CallbackContext context)
     {
-        if (context.performed && !isGrounded)
+        if (context.performed && !isGrounded && canDbJump)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
+            canDbJump = false;
         }
     }
 
     public void Aim(InputAction.CallbackContext context)
     {
-        if (Mouse.current.leftButton.IsPressed() && !isGrounded)
+        if (Mouse.current.leftButton.IsPressed() && !isGrounded && canShoot)
         {
             rb.gravityScale = gravity;
             rb.linearDamping = 10;
@@ -128,12 +136,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        if (!Mouse.current.leftButton.IsPressed() && !isGrounded && currentAmmo > 0)
+        if (!Mouse.current.leftButton.IsPressed() && !isGrounded && canShoot && currentAmmo > 0)
         {
             GameObject firedBullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.identity);
             Debug.Log("fired");
+            //creates a gameobject with a collider that will destry the bullet at the location of the aim instead of allowing it to keep flying.
+            GameObject destroyTrigger = Instantiate(bulletDestroyPrefab, mousePos, Quaternion.identity);
+            Destroy(destroyTrigger, 3);
             currentAmmo--;
             ammoCount.AmmoCounter();
+            canShoot = false;
         }
     }
 
@@ -145,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && canDash)
         {
             StartCoroutine(DashTime());
         }
@@ -170,7 +182,12 @@ public class PlayerMovement : MonoBehaviour
         }
         
         isDashing = false;
+        Debug.Log("dash ended, starting cooldown");
+
+        yield return new WaitForSeconds(dashCooldown);
+
         canDash = true;
+        Debug.Log("dash cooldown is over");
     }
 
 
@@ -179,6 +196,8 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == ("Ground"))
         {
             isGrounded = true;
+            canShoot = true;
+            canDbJump = true;
             Debug.Log("isGrounded");
         }
 

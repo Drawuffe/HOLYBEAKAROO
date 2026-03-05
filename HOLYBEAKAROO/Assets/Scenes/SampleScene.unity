@@ -389,13 +389,15 @@ MonoBehaviour:
   gravity: 0.25
   maxDashDuration: 0.2
   dashDistance: 5
-  dashCooldown: 0
+  dashCooldown: 2
   canDash: 1
   isDashing: 0
   reticle: {fileID: 1340114844}
   mouseRetSpeed: 100
   bulletPrefab: {fileID: 8984509214163740744, guid: 546c12e5356ce9d48a5e4d1ccd21a6c0, type: 3}
   bulletStart: {fileID: 325975065}
+  bulletDestroyPrefab: {fileID: 9086610812209025547, guid: f5efe7285d062b14688f512bc81aaa89, type: 3}
+  canShoot: 0
   currentAmmo: 0
   maxAmmo: 7
   ammoCount: {fileID: 1365668463}
