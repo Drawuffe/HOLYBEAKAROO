@@ -2,15 +2,23 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     [Header ("Stats")]
     public float moveSpeed;
     public float currentSpeed;
     public float floatSpeed;
     public float jumpHeight;
     private bool canDbJump;
+    //health stats:
+    public int maxHealth;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     [Header ("Gravity")]
     public float currentGravity;
@@ -54,6 +62,19 @@ public class PlayerMovement : MonoBehaviour
     public GameObject beakObj;
     public Shop shop;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
         beakObj = GameObject.FindGameObjectWithTag("Beak").GetComponent<GameObject>();
 
         currentAmmo = maxAmmo;
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -76,6 +100,21 @@ public class PlayerMovement : MonoBehaviour
         //moves the reticle along with the mousepos on every frame of update.
         mousePos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         reticle.transform.position = Vector2.Lerp(transform.position, mousePos, mouseRetSpeed);
+    }
+
+    public void TakeDamage(int _damage)
+    {
+        currentHealth -= _damage;
+        healthBar.SetHealth(currentHealth);
+        Debug.Log("Health = " + currentHealth.ToString());
+        //animator.SetBool("isHit", true);
+        StartCoroutine(HitWait());
+    }
+
+    IEnumerator HitWait()
+    {
+        yield return new WaitForSeconds(1);
+        //animator.SetBool("isHit", false);
     }
 
     public void Move(InputAction.CallbackContext context)
