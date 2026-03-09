@@ -5,10 +5,10 @@ Emuly: Yoo-Hooo! Howdy There! You look brand new around these parts, yer not fro
      Emuly:  I had a feeling! Fancy a drink?    
   
      
-  ->Pigeon: I’ve lived here my whole life
+  ->Pigeon: I lived ‘ere my whole life
      Emuly:  Oh…well anyways, a drink for your troubles?
 
-Pigeon: Oh, I don’t got no beaks on me..
+Pigeon: Oh, I don got no beaks on me..
 
 Emuly: why did you come into a bar with no beaks-
 
@@ -16,10 +16,10 @@ Emuly: That’s okay! This round’s on me, but I can’t spare much more
 
 Emuly: The way most people get their fix around here are these bounties, you get one of these and I can fix you up real nice
 
-Pigeon: I have to kill people for drinks?
+Pigeon: I gotta kill people for these drinks?
 
 Emuly: Beaks grow back, are you in or not?
- -> Pigeon: Why not   
+ -> Pigeon: Ay, why not   
   <<jump VinnyEnter>>
  -> Pigeon: Hell nah     
  <<jump VinnyEnter>>
@@ -49,7 +49,7 @@ Pigeon: I’m Pigeon A. Holliday and I-
 
 Vinny: I didn’t actually care, why are you talking to me right now
 
-Pigeon: You’re threatening a lowly bartender right now, you’re out of line
+Pigeon: Yer threatening a lowly bartender right now, yer out of line here
 
 Bartender: lowly?
 
@@ -73,8 +73,8 @@ Emuly: You’re gonna need that drink.
 
 Emuly: Here’s Vinny’s Bounty, once you defeat him, come back here and I can help you out some more
 
-Pigeon: Fine, I'll see you in a jiffy.
+Pigeon: Fine, I'll see ya.
 
-Emuly: See you later, Holliday!
+Emuly: See you-hoo later, Holliday!
 
 ===
