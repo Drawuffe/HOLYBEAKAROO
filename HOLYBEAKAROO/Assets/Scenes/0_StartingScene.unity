@@ -1108,6 +1108,7 @@ GameObject:
   - component: {fileID: 347841694}
   - component: {fileID: 347841693}
   - component: {fileID: 347841692}
+  - component: {fileID: 347841696}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -1205,6 +1206,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &347841696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347841691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc287f2ef2f54e49b617e7513d1cb4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &384446737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,7 +4359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b792bfa38052b494bbf8c5dac735085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
-  followCam: {fileID: 0}
 --- !u!1 &1767660523
 GameObject:
   m_ObjectHideFlags: 0

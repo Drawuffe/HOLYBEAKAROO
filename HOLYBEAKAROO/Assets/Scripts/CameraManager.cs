@@ -5,7 +5,7 @@ using Unity.Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance;
-    public CinemachineCamera followCam;
+    //public CinemachineCamera followCam;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class CameraManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if(sceneName == "0_StartingScene")
+        /*if(sceneName == "0_StartingScene")
         {
             followCam.enabled = false;
         }
@@ -45,6 +45,6 @@ public class CameraManager : MonoBehaviour
         {
             followCam.enabled = true;
             
-        }
+        }*/
     }
 }

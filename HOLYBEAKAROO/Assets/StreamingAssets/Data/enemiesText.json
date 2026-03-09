@@ -1,0 +1,45 @@
+{
+    "enemiesList": [
+         {
+            "name": "BasicEnemy",
+            "health": 10,
+            "speed": 5,
+            "detectionRange": 10,
+            "attackRange": 10,
+            "attackCooldown": 5
+        },
+        {
+            "name": "ValVin",
+            "health": 100,
+            "speed": 4,
+            "detectionRange": 10,
+            "attackRange": 10,
+            "attackCooldown": 5
+        },
+        {
+            "name": "BigRobot",
+            "health": 100,
+            "speed": 5,
+            "detectionRange": 10,
+            "attackRange": 10,
+            "attackCooldown": 5
+        },
+        {
+            "name": "SmallRobot",
+            "health": 5,
+            "speed": 4,
+            "detectionRange": 10,
+            "attackRange": 5,
+            "attackCooldown": 5
+        },
+        {
+            "name": "CameraBot",
+            "health": 10,
+            "speed": 0,
+            "detectionRange": 15,
+            "attackRange": 5,
+            "attackCooldown": 5
+        }
+    ]
+
+}

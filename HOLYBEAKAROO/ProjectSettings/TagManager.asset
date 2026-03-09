@@ -8,6 +8,7 @@ TagManager:
   - BeakCount
   - InteractionText
   - Beak
+  - Enemy
   layers:
   - Default
   - TransparentFX
