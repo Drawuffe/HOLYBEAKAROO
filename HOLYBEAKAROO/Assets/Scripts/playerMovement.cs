@@ -85,12 +85,12 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         reticle.SetActive(false);
-        beakObj = GameObject.FindGameObjectWithTag("Beak").GetComponent<GameObject>();
 
         currentAmmo = maxAmmo;
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        beakObj = GameObject.FindGameObjectWithTag("Beak").GetComponent<GameObject>();
     }
 
     void Update()
