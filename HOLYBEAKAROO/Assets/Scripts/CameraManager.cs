@@ -5,6 +5,8 @@ using Unity.Cinemachine;
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance;
+    public GameObject cameraFollow;  
+    public string sceneName;
     //public CinemachineCamera followCam;
 
     private void Awake()
@@ -16,6 +18,7 @@ public class CameraManager : MonoBehaviour
             Instance = this;
             //keeps game manager alive when switching scenes
             DontDestroyOnLoad(this.gameObject);
+            
 
             //SceneManager.sceneLoaded += OnSceneLoad;
         }
@@ -28,6 +31,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
@@ -47,4 +51,29 @@ public class CameraManager : MonoBehaviour
             
         }*/
     }
+
+    /*public void CameraCheck()
+    {
+        Debug.Log("Running");
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+       if(sceneName == "0_StartScene")
+       {
+            
+            cameraFollow.SetActive(false);
+           
+       }
+       if (sceneName == "1_InteriorBar")
+       {
+            cameraFollow.SetActive(false);
+       }
+       if(sceneName == "2_StartLevel")
+       {
+            cameraFollow.SetActive(true);
+
+       }
+    
+    }*/
+
+
 }

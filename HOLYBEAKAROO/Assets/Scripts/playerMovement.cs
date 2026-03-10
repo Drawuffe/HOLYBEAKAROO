@@ -248,6 +248,12 @@ public class PlayerMovement : MonoBehaviour
             shop.BeakCounter();
             Destroy(collision.gameObject);
         }
+
+        if(collision.gameObject.tag == ("Glass"))
+        {
+            int glassDamage = 1;
+            TakeDamage(glassDamage);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

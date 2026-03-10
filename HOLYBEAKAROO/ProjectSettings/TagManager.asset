@@ -9,6 +9,7 @@ TagManager:
   - InteractionText
   - Beak
   - Enemy
+  - Glass
   layers:
   - Default
   - TransparentFX
