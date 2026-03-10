@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     public Transform bulletStart;
 
-    float health, maxHealth = 15f;
+    public float health, maxHealth = 15f;
 
     //patrol settings
     //public Transform[] patrolPoints;
@@ -29,16 +29,16 @@ public class EnemyAI : MonoBehaviour
     //AI settings
     [Header("AI Settings")]
     //public int health;
+    public float moveInput;
     public float speed;
-    public float detectionRange;
-    public float attackRange;
     public float attackCooldown;
+    public bool canMove = false;
 
     float lastAttackTime;
     int collisionCount = 0;
 
     [Header("Projectile Settings")]
-    public Rigidbody projectile;
+    //public Rigidbody projectile;
     public float projSpeed = 8f;
 
     // Start is called before the first frame update
@@ -52,33 +52,23 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        //Look towards player direction
-        Vector3 dir = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-
-        Move();
-        //AttackState();
+        if (canMove)
+        {
+            Move();
+        }
     }
 
-    void Move()
+    public void TakeDamage(float damage)
     {
-        // move myself towards the player
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-
-    }
-
-    public void TakeDamage(float damage, Vector3 pos)
-    {
-        if (pos.x < transform.position.x)
+        /*if (pos.x < transform.position.x)
         {
             rb.AddForce(Vector2.right * 10 * Time.deltaTime, ForceMode2D.Impulse);
         }
         else
         {
             rb.AddForce(Vector2.left * 10 * Time.deltaTime, ForceMode2D.Impulse);
-        }
+        }*/
+
         health -= damage;
         if (health <= 0)
         {
@@ -97,7 +87,7 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("enemy attacked");
             //logic to alert the player about being found, staying in the radius for a certain amount of time will reset the player's game.
             //logic to damage player health on another script
-            DealDamage.SendDamage(1);
+            //DealDamage.SendDamage(1);
         }
     }
 
@@ -108,14 +98,38 @@ public class EnemyAI : MonoBehaviour
 
         GameObject projectile = Instantiate(enemyBulletPrefab, bulletStart.position, Quaternion.identity);
         //p.linearVelocity = transform.forward * speed;
-
         StartCoroutine(SpawnBullets());
+        Destroy(projectile, 1.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Look towards player direction
+            //Vector3 dir = target.transform.position - transform.position;
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            //Move();
+            canMove = true;
+            AttackState();
+        }
+    }
+    void Move()
+    {
+        Vector3 rotation = (target.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        // move myself towards the player
+        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            Debug.Log("collided with enemy");
             collisionCount++;
             health -= 1;
 
@@ -126,8 +140,9 @@ public class EnemyAI : MonoBehaviour
                 //agent.enabled = false;
                 //ChangeState(EnemyState.Death)
                 Destroy(gameObject);
+                Instantiate(beakPrefab);
                 //dead = true;
             }
         }
-    }
+    }*/
 }

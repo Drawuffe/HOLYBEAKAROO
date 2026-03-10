@@ -8,7 +8,9 @@ public class SceneChanger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(sceneNumber);
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(sceneNumber);
+        }
     }
 }

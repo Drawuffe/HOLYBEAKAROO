@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D bulletRB;
     public float force;
+    public EnemyAI enemyAI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +33,16 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+            Debug.Log("hit ground");
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            enemyAI.TakeDamage(1);
+            Destroy(gameObject);
+            Debug.Log("hit");
+        }
     }
 }

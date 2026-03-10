@@ -34,6 +34,13 @@ public class EnemyBulletPrefab : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            DealDamage.SendDamage(1);
+            Debug.Log("enemy bullet hit");
+        }
+        
+        //Destroy(gameObject);
     }
 }

@@ -3889,7 +3889,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1955448553306655712, guid: d19a465d832fbb746adeed0b89de07ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4528,6 +4528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
   cameraFollow: {fileID: 1870716573}
   sceneName: 
+  sceneIndex: 0
 --- !u!1 &1767660523
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
     public static CameraManager Instance;
     public GameObject cameraFollow;  
     public string sceneName;
+    public int sceneIndex;
     //public CinemachineCamera followCam;
 
     private void Awake()
@@ -31,49 +32,38 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
 
-        /*if(sceneName == "0_StartingScene")
-        {
-            followCam.enabled = false;
-        }
-
-        if (sceneName == "1_InteriorBar")
-        {
-            followCam.enabled = false;
-        }
-
-        if (sceneName == "2_StartLevel")
-        {
-            followCam.enabled = true;
-            
-        }*/
     }
 
-    /*public void CameraCheck()
+    private void Update()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        //string sceneName = currentScene.name;
+        sceneIndex = currentScene.buildIndex;
+
+        CameraCheck();
+    }
+
+    public void CameraCheck()
     {
         Debug.Log("Running");
-        Scene currentScene = SceneManager.GetActiveScene();
-        sceneName = currentScene.name;
-       if(sceneName == "0_StartScene")
-       {
-            
-            cameraFollow.SetActive(false);
-           
-       }
-       if (sceneName == "1_InteriorBar")
+        //Scene currentScene = SceneManager.GetActiveScene();
+        //sceneName = currentScene.name;
+       if(sceneIndex == 0)
        {
             cameraFollow.SetActive(false);
        }
-       if(sceneName == "2_StartLevel")
+
+       if (sceneIndex == 1)
+       {
+            cameraFollow.SetActive(false);
+       }
+
+       if(sceneIndex == 2)
        {
             cameraFollow.SetActive(true);
-
        }
-    
-    }*/
+    }
 
 
 }
