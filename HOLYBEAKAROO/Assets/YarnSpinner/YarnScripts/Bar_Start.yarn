@@ -1,11 +1,9 @@
-﻿title: Bar_Start
+title: Bar_Start
 ---
 Emuly: Yoo-Hooo! Howdy There! You look brand new around these parts, yer not from around here, are you?
-  -> Pigeon: Came in on the last train
+    -> Pigeon: Came in on the last train
      Emuly:  I had a feeling! Fancy a drink?    
-  
-     
-  ->Pigeon: I lived ‘ere my whole life
+    -> Pigeon: I lived ‘ere my whole life
      Emuly:  Oh…well anyways, a drink for your troubles?
 
 Pigeon: Oh, I don got no beaks on me..
@@ -14,7 +12,7 @@ Emuly: why did you come into a bar with no beaks-
 
 Emuly: That’s okay! This round’s on me, but I can’t spare much more
 
-Emuly: The way most people get their fix around here are these bounties, you get one of these and I can fix you up real nice
+Emuly: The way most people get their fix around here are these bounties, you-hoo get one of these and I can fix you up real nice
 
 Pigeon: I gotta kill people for these drinks?
 
@@ -29,37 +27,37 @@ Emuly: Beaks grow back, are you in or not?
 title:VinnyEnter
 position: 2,214
 ---
-Vinny: WHERE THE HELL IS MY DRINK?
+Vinny: WHERE DA HELL IS MY DRINK?
 
 Bartender: Here you are, V, That’ll be 15 beaks
 
-Vinny: You’re always ripping people off, just hand me the drink, I’m almost done with my bounty
+Vinny: Ya always ripping people off, jus hand me the drink, ’m almost done with my bounty
 
-Bartender: You know how it is V, no beaks, no drink
+Bartender: You know how it is VV, no beaks, no drink
 
-Vinny: You better be careful about who you’re talking to here, you know I can take you easier than my buddies outside
+Vinny: Ya better be careful about who ya talking to here, we can settle this outside
 
 Pidgeon: Why are ya yelling so damn loud…coming in here threatening people…
 
 Vinny: …
 
-Vinny: Who the hell are you?
+Vinny: Who da hell are ya?
 
 Pigeon: I’m Pigeon A. Holliday and I-
 
-Vinny: I didn’t actually care, why are you talking to me right now
+Vinny: I didn actually care, why are ya talking to me right now
 
 Pigeon: Yer threatening a lowly bartender right now, yer out of line here
 
 Bartender: lowly?
 
-Vinny: Oh thank goodness you were here then! I know exactly what you’re doing and you’re going to have to try harder than that.
+Vinny: Oh thank goodness ya were here then! I know exactly what ya doing and ya going to have to try harder than dat.
 
 Pigeon: what
 
-Vinny: You think I’m so stupid, I can smell it on you
+Vinny: Ya think ’m so stupid, I can smell it on ya
 
-Vinny: Meet me outside, I’ll show you what happens when people cross me.
+Vinny: Meet me outside, ’ll show ya what happens when people cross me.
 
 <<jump BountyIntro>>
 
@@ -67,7 +65,7 @@ Vinny: Meet me outside, I’ll show you what happens when people cross me.
 
 ===
 title: BountyIntro
-position: -1,406
+position: 2,406
 ---
 Emuly: You’re gonna need that drink.
 
