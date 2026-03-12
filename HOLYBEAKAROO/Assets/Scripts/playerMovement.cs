@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
@@ -109,6 +110,11 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Health = " + currentHealth.ToString());
         //animator.SetBool("isHit", true);
         StartCoroutine(HitWait());
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene(0);
+            //dead = true;
+        }
     }
 
     IEnumerator HitWait()
@@ -148,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && !isGrounded && canDbJump)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight * 1.25f);
             canDbJump = false;
             canShoot = true;
         }
