@@ -13,4 +13,8 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene(sceneNumber);
         }
     }
+    public void LoadSceneByIndex(int sceneNumber)
+    {
+        SceneManager.LoadScene(sceneNumber);
+    }
 }
