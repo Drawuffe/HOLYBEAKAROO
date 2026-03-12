@@ -7,7 +7,7 @@ public class Shop : MonoBehaviour
 
     public bool canBuyDrink = false;
     public float drinkCost = 3;
-    public float beaks = 3;
+    public float beaks = 0;
     public Drinks drinks;
     
 

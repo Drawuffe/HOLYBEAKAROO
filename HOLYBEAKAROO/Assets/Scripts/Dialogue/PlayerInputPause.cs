@@ -1,30 +1,31 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
 public class PlayerInputPause : MonoBehaviour
 {
     public PlayerMovement pInput;
 
-    private void Awake()
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
+        pInput = GetComponent<PlayerMovement>();
         
     }
 
-    private void OnEnable()
+    public void OnTalk()
     {
+        pInput.enabled = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         
+
     }
 
-    private void OnDisable()
+    public void NotTalk()
     {
-        
+        pInput.enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
-
-
-
-
-
-
 
 }
