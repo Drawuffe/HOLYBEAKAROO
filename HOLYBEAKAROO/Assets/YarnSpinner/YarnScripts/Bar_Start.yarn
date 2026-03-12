@@ -6,11 +6,11 @@ Emuly: Yoo-Hooo! Howdy There! You look brand new around these parts, yer not fro
     -> Pigeon: I lived ‘ere my whole life
      Emuly:  Oh…well anyways, a drink for your troubles?
 
-Pigeon: Oh, I don got no beaks on me..
+Pigeon: Oh, these are all the beaks I have..
 
-Emuly: why did you come into a bar with no beaks-
+Emuly: why did you come into a bar with barely any beaks-
 
-Emuly: That’s okay! This round’s on me, but I can’t spare much more
+Emuly: That’s okay! I can help ya get some more
 
 Emuly: The way most people get their fix around here are these bounties, you-hoo get one of these and I can fix you up real nice
 
@@ -29,7 +29,7 @@ position: 2,214
 ---
 Vinny: WHERE DA HELL IS MY DRINK?
 
-Bartender: Here you are, V, That’ll be 15 beaks
+Bartender: Here you are, V, That’ll be 3 beaks
 
 Vinny: Ya always ripping people off, jus hand me the drink, ’m almost done with my bounty
 
@@ -67,8 +67,17 @@ Vinny: Meet me outside, ’ll show ya what happens when people cross me.
 title: BountyIntro
 position: 2,406
 ---
+<<set $DrinkOver = false>>
 Emuly: You’re gonna need that drink.
+<<DrinkStart Shop_Interact>>
+(wait 7)
+<<if $DrinkOver == true>>
+    <<jump AfterBought>>
+    <<endif>>
+===
 
+title:AfterBought
+---
 Emuly: Here’s Vinny’s Bounty, once you defeat him, come back here and I can help you out some more
 
 Pigeon: Fine, I'll see ya.

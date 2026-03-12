@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Yarn;
+using Yarn.Unity;
 
 public class ShopNPC : MonoBehaviour
 {
@@ -12,13 +14,14 @@ public class ShopNPC : MonoBehaviour
     public UnityEvent CloseShop;
     public bool shopOpen = false;
     public int pressedAmt = 0;
+    public GameObject BarCanvas;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<GameObject>();
-
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<GameObject>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -41,13 +44,29 @@ public class ShopNPC : MonoBehaviour
     {
 
         canInteract = false;
-        if(shopOpen)
+        if (shopOpen)
         {
             CloseShop.Invoke();
         }
-        
+
         Debug.Log("Not near shop keeper");
     }
 
-
+    [YarnCommand("DrinkStart")]
+    public void DrinkOpen()
+    {
+        BarCanvas.SetActive(true);
+        OpenShop.Invoke();
+    }
 }
+public class BarEnd
+{
+    public static bool barDone;
+
+    [YarnFunction("DrinkOver")]
+    public static bool drinkClose()
+    {
+        return barDone;
+    }
+}
+
