@@ -33,16 +33,19 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        /*if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            enemyAI.TakeDamage(1);
+            Debug.Log("hit");
+        }*/
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
             Debug.Log("hit ground");
         }
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            enemyAI.TakeDamage(1);
-            Destroy(gameObject);
-            Debug.Log("hit");
-        }
+
+        Destroy(gameObject);
     }
 }

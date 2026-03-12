@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
 
-    [Header ("Stats")]
+    [Header("Stats")]
     public float moveSpeed;
     public float currentSpeed;
     public float floatSpeed;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     public HealthBar healthBar;
 
-    [Header ("Gravity")]
+    [Header("Gravity")]
     public float currentGravity;
     public float gravity;
 
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && isGrounded)
+        if (context.performed && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
             canShoot = true;
@@ -150,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
             canDbJump = false;
+            canShoot = true;
         }
     }
 
@@ -161,6 +162,8 @@ public class PlayerMovement : MonoBehaviour
             rb.linearDamping = 10;
             moveSpeed = floatSpeed;
             reticle.SetActive(true);
+            //set timer now
+            StartCoroutine(ShootStateTimer());
         }
         else if (!Mouse.current.leftButton.IsPressed())
         {
@@ -199,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && canDash)
         {
             StartCoroutine(DashTime());
+            canShoot = true;
         }
     }
 
@@ -212,14 +216,14 @@ public class PlayerMovement : MonoBehaviour
 
         float startTime = Time.time;
 
-        while(Time.time < startTime + maxDashDuration)
+        while (Time.time < startTime + maxDashDuration)
         {
             //add dash trail vfx
             //moves the player towards the right arrow/red arrow
             rb.linearVelocity = new Vector2(dashSpeed, rb.linearVelocity.y) * transform.right;
             yield return null;
         }
-        
+
         isDashing = false;
         Debug.Log("dash ended, starting cooldown");
 
@@ -227,6 +231,15 @@ public class PlayerMovement : MonoBehaviour
 
         canDash = true;
         Debug.Log("dash cooldown is over");
+    }
+
+    private IEnumerator ShootStateTimer()
+    {
+        yield return new WaitForSeconds(5);
+        rb.gravityScale = currentGravity;
+        rb.linearDamping = 0;
+        moveSpeed = currentSpeed;
+        reticle.SetActive(false);
     }
 
 
@@ -251,7 +264,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.gameObject.tag == ("Glass"))
         {
-            int glassDamage = 1;
+            int glassDamage = 5;
             TakeDamage(glassDamage);
         }
     }

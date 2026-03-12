@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
     public Transform bulletStart;
 
-    public float health, maxHealth = 15f;
+    public float health, maxHealth = 5f;
 
     //patrol settings
     //public Transform[] patrolPoints;
@@ -31,8 +31,9 @@ public class EnemyAI : MonoBehaviour
     //public int health;
     public float moveInput;
     public float speed;
-    public float attackCooldown;
+    public float attackCooldown = 3f;
     public bool canMove = false;
+    int facingDir = 0;
 
     float lastAttackTime;
     int collisionCount = 0;
@@ -98,7 +99,7 @@ public class EnemyAI : MonoBehaviour
 
         GameObject projectile = Instantiate(enemyBulletPrefab, bulletStart.position, Quaternion.identity);
         //p.linearVelocity = transform.forward * speed;
-        StartCoroutine(SpawnBullets());
+        //StartCoroutine(SpawnBullets());
         Destroy(projectile, 1.5f);
     }
 
@@ -123,9 +124,24 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         // move myself towards the player
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+
+        moveInput = transform.rotation.z;
+
+        if (moveInput < 0.5f)
+        {
+            facingDir = 0;
+        }
+        else if (moveInput > 0.5f)
+        {
+            facingDir = -180;
+        }
+
+        //transform.localScale = new Vector3(facingDir, 1, 1);
+        Vector3 rotator = new Vector3(transform.rotation.x, facingDir, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(rotator);
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
@@ -140,9 +156,9 @@ public class EnemyAI : MonoBehaviour
                 //agent.enabled = false;
                 //ChangeState(EnemyState.Death)
                 Destroy(gameObject);
-                Instantiate(beakPrefab);
+                Instantiate(beakPrefab, transform.position, Quaternion.identity);
                 //dead = true;
             }
         }
-    }*/
+    }
 }
