@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class BossEnemyAI : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class BossEnemyAI : MonoBehaviour
     {
         if (isDead)
         {
+            SceneManager.LoadScene(4);
             //change scene to end/restart scene
         }
     }

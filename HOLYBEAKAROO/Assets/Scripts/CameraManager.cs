@@ -49,17 +49,17 @@ public class CameraManager : MonoBehaviour
         Debug.Log("Running");
         //Scene currentScene = SceneManager.GetActiveScene();
         //sceneName = currentScene.name;
-       if(sceneIndex == 0)
+       if(sceneIndex == 1)
        {
             cameraFollow.SetActive(false);
        }
 
-       if (sceneIndex == 1)
+       if (sceneIndex == 2)
        {
             cameraFollow.SetActive(false);
        }
 
-       if(sceneIndex == 2)
+       if(sceneIndex == 3)
        {
             cameraFollow.SetActive(true);
        }
